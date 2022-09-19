@@ -11,6 +11,8 @@
   #droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
   #draggable2 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
   #droppable2 { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+  #draggable3 { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+  #droppable3 { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
   </style>
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -29,6 +31,17 @@
   $( function() {
     $( "#draggable2" ).draggable();
     $( "#droppable2" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Усе вірно!" );
+      }
+    });
+  } );
+  $( function() {
+    $( "#draggable3" ).draggable();
+    $( "#droppable3" ).droppable({
       drop: function( event, ui ) {
         $( this )
           .addClass( "ui-state-highlight" )
@@ -57,11 +70,11 @@
     <p>Мистецтво</p>
   </div>
 
-  <div id="draggable2" class="ui-widget-content">
+  <div id="draggable3" class="ui-widget-content">
     <p>Школа</p>
   </div>
    
-  <div id="droppable2" class="ui-widget-header">
+  <div id="droppable3" class="ui-widget-header">
     <p>Ад</p>
   </div>
  
